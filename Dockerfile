@@ -31,7 +31,6 @@ RUN echo "gem 'unicorn'" >> Gemfile
 COPY config/database.yml ${APP_HOME}/config/database.yml
 
 RUN bundle install
-RUN bundle exec rake assets:precompile
 
 COPY config/unicorn.rb ${UNICORN_CONFIG}
 COPY script/add_first_agent.rb ${APP_HOME}/db/
