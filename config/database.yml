@@ -1,6 +1,6 @@
 production:
-  adapter: mysql2
-  host: <%= ENV["MYSQL_HOST"] || 'mysql' %>
-  database: <%= ENV["MYSQL_DATABASE"] || ENV["MYSQL_ENV_MYSQL_DATABASE"] %>
-  username: <%= ENV["MYSQL_USER"] || ENV["MYSQL_ENV_MYSQL_USER"] %>
-  password: <%= ENV["MYSQL_PASSWORD"] || ENV["MYSQL_ENV_MYSQL_PASSWORD"] %>
+  adapter: <%= ENV["DB_ADAPTER"] || 'mysql2' %>
+  host: <%= ENV["DB_HOST"] %>
+  database: <%= ENV["DB_DATABASE"] || 'brimir' %>
+  username: <%= ENV["DB_USER"] || 'brimir' %>
+  password: <%= ENV["DB_PASSWORD"] %>
