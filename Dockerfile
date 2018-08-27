@@ -40,4 +40,4 @@ COPY script/docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod 700 /docker-entrypoint.sh
 
 EXPOSE 3000
-ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["bundle", "exec", "unicorn", "-c", "$UNICORN_CONFIG", "-E", "$RAILS_ENV", "-D"]
