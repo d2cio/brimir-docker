@@ -1,4 +1,4 @@
-FROM ruby:2.5
+FROM ruby:2.3
 
 ENV APP_NAME=brimir
 ENV GIT_REPO="https://github.com/ivaldi/brimir"
@@ -35,9 +35,6 @@ RUN bundle install
 COPY config/unicorn.rb ${UNICORN_CONFIG}
 COPY script/add_first_agent.rb ${APP_HOME}/db/
 COPY config/action_mailer.rb ${APP_HOME}/config/initializers/action_mailer.rb
-
-COPY script/docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod 700 /docker-entrypoint.sh
 
 EXPOSE 3000
 CMD ["bundle", "exec", "unicorn", "-c", "$UNICORN_CONFIG", "-E", "$RAILS_ENV", "-D"]
